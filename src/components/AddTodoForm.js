@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import addToDo from '../actions/addToDo'
+import {connect} from 'react-redux'
 
 class AddTodoForm extends Component {
   constructor(props) {
@@ -10,9 +12,16 @@ class AddTodoForm extends Component {
     this.setState({ todo: e.target.value });
   }
 
-  submitForm = (e) => {
+  submitForm = async (e) => {
+    if(!this.state.todo){
+      e.preventDefault()
+      alert('Can not create an empty to-do')
+      return
+    }
     e.preventDefault()
+   this.props.addToDo(this.state.todo)
     this.setState({ todo: '' });
+
   }
 
   render() {
@@ -30,4 +39,10 @@ class AddTodoForm extends Component {
   }
 }
 
-export default AddTodoForm;
+const mapDispatchToProps = dispatch => {
+  return {
+    addToDo: (todo) => dispatch(addToDo(todo)),
+  }
+}
+export default connect(null,mapDispatchToProps)(AddTodoForm)
+

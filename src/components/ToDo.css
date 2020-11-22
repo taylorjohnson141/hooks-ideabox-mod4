@@ -1,0 +1,9 @@
+.article{
+  border: 2px solid black;
+}
+.to-do-container{
+  margin-top: 10px;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr;
+}
