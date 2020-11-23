@@ -3,7 +3,7 @@ import AddTodoForm from './AddTodoForm';
 import ToDoList from './ToDoList'
 import {connect} from 'react-redux'
 
-function App  {
+function App () {
     return (
       <div className="App">
         <h1>Another Todo Box</h1>
