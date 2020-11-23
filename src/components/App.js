@@ -3,8 +3,7 @@ import AddTodoForm from './AddTodoForm';
 import ToDoList from './ToDoList'
 import {connect} from 'react-redux'
 
-class App extends Component {
-  render() {
+function App () {
     return (
       <div className="App">
         <h1>Another Todo Box</h1>
@@ -12,7 +11,6 @@ class App extends Component {
         <ToDoList/>
       </div>
     );
-  }
 }
 
 export default App;

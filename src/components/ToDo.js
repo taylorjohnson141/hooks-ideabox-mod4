@@ -11,9 +11,5 @@ function ToDo(props) {
     </article>
   )
 }
-const mapDispatchToProps = dispatch => {
-  return {
-    removeToDo: (todo) => dispatch(removeToDo(todo)),
-  }
-}
-export default connect(null,mapDispatchToProps)(ToDo)
+
+export default ToDo

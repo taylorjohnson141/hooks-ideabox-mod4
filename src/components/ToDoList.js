@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import {connect} from 'react-redux'
+import React from 'react';
 import ToDo from './ToDo'
 import './ToDo.css'
 function ToDoList (todos){
@@ -17,5 +16,4 @@ function ToDoContainer (props){
     </section>
   
 }
-const mapStateToProps = state => ({ todos: state.todos })
- export default connect (mapStateToProps,null)(ToDoContainer)
+ export default ToDoContainer
