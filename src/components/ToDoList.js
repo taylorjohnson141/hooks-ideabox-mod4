@@ -1,18 +1,17 @@
 import React from 'react';
 import ToDo from './ToDo'
 import './ToDo.css'
-function ToDoList (todos){
-  console.log(todos)
+function ToDoList (todos,removeToDo){
   return todos.map((todo,index) =>{
-    return <ToDo key= {index} todo ={todo}/>
+    return <ToDo key= {index} todo ={todo} removeToDo ={removeToDo}/>
   })
 }
-function ToDoContainer (props){
-    if(!props.todos.length ){
+function ToDoContainer ({todos,removeToDo}){
+    if(!todos,length ){
       return <span>Add a todo!</span>
     }
     return <section className = 'to-do-container'>
-      {ToDoList(props.todos)}
+      {ToDoList(todos,removeToDo)}
     </section>
   
 }
