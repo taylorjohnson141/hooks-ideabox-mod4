@@ -1,42 +1,34 @@
-import React, { Component } from 'react'
-import addToDo from '../actions/addToDo'
-import {connect} from 'react-redux'
+import React, { useState } from 'react';
 
-class AddTodoForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { todo: '' };
-  }
 
-  handleChange = (e) => {
-    this.setState({ todo: e.target.value });
-  }
+function AddTodoForm ({todos,addToDo}) {
+  const [name, createToDo] = useState("");
 
-  submitForm = async (e) => {
-    if(!this.state.todo){
+  let submitForm =  async (e) => {
+    if(!name){
       e.preventDefault()
       alert('Can not create an empty to-do')
       return
     }
     e.preventDefault()
-   this.props.addToDo(this.state.todo)
-    this.setState({ todo: '' });
+  addToDo([...todos,name])
+  console.log([...todos,name])
+
+  createToDo('');
 
   }
 
-  render() {
     return (
       <section>
-        <form onSubmit={this.submitForm}>
+        <form onSubmit={submitForm}>
           <input
-            value={this.state.todo}
+            value={name}
             placeholder="Add A Todo"
-            onChange={this.handleChange} />
+            onChange={e => createToDo(e.target.value)} />
           <button>Add Todo</button>
         </form>
       </section>
     )
-  }
 }
 
 

@@ -1,13 +1,18 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react';
 import './ToDo.css'
-import {connect} from 'react-redux'
-import removeToDo from '../actions/removeToDo'
-function ToDo(props) {
+function ToDo({todo,removeToDo,todos}) {
   return (
 
     <article className = 'article'>
-      <p>{props.todo.todo}</p>
-      <button onClick ={ () => props.removeToDo(props.todo.id)}> Delete todo</button>
+      <p>{todo}</p>
+      <button onClick = {() =>{
+        let indexOfArray = todos.indexOf(todo)
+        console.log(indexOfArray)
+       let newArray = todos.slice()
+       newArray.splice(indexOfArray,1)
+       console.log('no',newArray)
+        removeToDo(newArray)
+      }}> Delete todo</button>
     </article>
   )
 }
