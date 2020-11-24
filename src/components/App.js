@@ -7,7 +7,7 @@ function App () {
     return (
       <div className="App">
         <h1>Another Todo Box</h1>
-        <AddTodoForm AddToDo = {changeToDo}  />
+        <AddTodoForm addToDo = {changeToDo} todos = {todos} />
         <ToDoList todos = {todos} removeToDo = {changeToDo}/>
       </div>
     );
